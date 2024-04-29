@@ -4,11 +4,14 @@ the console, the state of the computer, etc. If we want lean to be able to do th
 we need to cheat a little by writing special code that calls external c++ code to do
 these interactions for us. The IO monad's job is to abstract away the cheating!
 
-If α is a type, then we think of IO α as the type constaining "programs" that return an α
+If α is a type, then we think of IO α as the type containing "programs" that return an α
 but might need to call external programs along the way.
 
 In the example below, since we are just printing, we don't actually need our program to
-return anything, so we just return the default element of the type Unit.
+return anything, so we just return the default element of the type 'Unit'. We can run it
+by typing
+
+
 -/
 
 

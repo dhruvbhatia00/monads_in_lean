@@ -35,7 +35,7 @@ class IntWithLogs:
 # print(addOne(square(2)).value)
 # print(addOne(square(2)).log)
 
-'''But we have an issue:'''
+# '''But we have an issue:'''
 
 # square(square(2))
 # addOne(5)
@@ -54,7 +54,7 @@ def wrapWithLogs(x : int) -> IntWithLogs :
 
 def runWithLogs(input : IntWithLogs, transform : Callable[[int], IntWithLogs]) -> IntWithLogs:
     output = transform(input.value)
-    value = output.value 
+    value = output.value
     log = input.log + output.log
 
     return IntWithLogs(value, log)

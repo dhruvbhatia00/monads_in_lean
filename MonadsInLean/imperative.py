@@ -21,8 +21,8 @@ def main():
     fifth = password[4]
     print(fifth)
 
-if __name__ == "__main__":
-    main()
+
+main()
 
 '''If the user enters a password that has fewer than 5 characters, the above code will 
 throw an error! In this way, Python's ability to modify the computer's state and interact
