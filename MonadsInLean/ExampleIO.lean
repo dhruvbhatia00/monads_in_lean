@@ -1,3 +1,4 @@
+import Lean
 /-The most important monad in Lean is the IO monad. Since Lean is a funtional language,
 no pure functions have the ability tyo interact with anything outside Lean, like with
 the console, the state of the computer, etc. If we want lean to be able to do this stuff,
@@ -49,3 +50,15 @@ def main : IO Unit := do
 
 /- In this way, bind helps us chain operations together, all the while hiding the execution
 through external programs! We simulate imperative programming within a functional setting! -/
+
+
+
+open Lean Elab Command Term Meta
+
+syntax (name := mycommand1) "#mycommand1" : command -- declare the syntax
+
+@[command_elab mycommand1]
+def mycommand1Impl : CommandElab := fun stx => do -- declare and register the elaborator
+  logInfo "Hello World"
+
+#mycommand1 -- Hello World
