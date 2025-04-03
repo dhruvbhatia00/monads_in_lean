@@ -5,11 +5,11 @@ The dude has access to a ginormous filing cabinet somewhere in my computer's cir
 depths representing the "memory", or the computer's state, and with every command, he 
 retrieves/updates data from the cabinet, essentially modifying the state of the computer.'''
 
-# x = 5
-# print(x)
+x = 5
+print(x)
 
-# x = x + 5
-# print(x + 5)
+x = x + 5
+print(x + 5)
 
 '''As such, variables are mutable - once you assign them, they can be changed by simply 
 reassigning. Another consequence of imperative programming is that since lines of code 

@@ -32,6 +32,9 @@ instance : Monad Option where
 def first (xs : List α) : Option α :=
 xs[0]?
 
+/- Because the list may or may not have a first entry (it might be the empty list), we need to
+include the '?', which makes it return 'none' in case the list doesn't have a first entry. -/
+
 def firstThird (xs : List α) : Option (α × α) :=
   match xs[0]? with
   | none => none
@@ -77,7 +80,7 @@ def firstThirdM (xs : List α) : Option (α × α) :=
 #eval firstThirdM ["first", "second", "third"]
 
 /- The ultimate goal of monads in a functional language like lean is to simulate imperative
-programming. To do that, Lean provides more syntax - so called 'do notation'. Using it, we can
+programming. To do that, Lean provides more syntax - so called 'do' notation. Using it, we can
 re write the above as: -/
 
 def firstThirdMd (xs : List α) : Option (α × α) := do
@@ -85,7 +88,7 @@ def firstThirdMd (xs : List α) : Option (α × α) := do
   let thrd ← xs[2]?
   some (fst, thrd)
 
-/- The above is just syntax, it is definitionally equivalent to using bind regularly. But the
-benefit of writing things this way is that it feels like we are assigning the output from 'xs[0]?'
-to the variable 'fst'. Since each "assignment" might fail due to missing values, this really is like
-imperative programming! -/
+/- The above is just syntax, it is definitionally equivalent to using bind the regular way. But
+the benefit of writing things this way is that it feels like we are assigning the output from
+'xs[0]?' to the variable 'fst'. Since each "assignment" might fail due to missing values, this
+really is like imperative programming! -/

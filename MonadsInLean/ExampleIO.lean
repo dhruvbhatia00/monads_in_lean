@@ -12,7 +12,9 @@ In the example below, since we are just printing, we don't actually need our pro
 return anything, so we just return the default element of the type 'Unit'. We can run it
 by typing
 
+'lean --run MonadsInLean/ExampleIO.lean'
 
+which looks for an 'IO -' named 'main', and runs the program it corresponds to.
 -/
 
 

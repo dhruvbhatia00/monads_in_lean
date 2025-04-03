@@ -59,7 +59,7 @@ def runWithLogs(input : IntWithLogs, transform : Callable[[int], IntWithLogs]) -
 
     return IntWithLogs(value, log)
 
-'''we now rewrite the square and add functions accordingly'''
+# '''we now rewrite the square and add functions accordingly'''
 
 def square(x : int) -> IntWithLogs :
     value = x * x 
