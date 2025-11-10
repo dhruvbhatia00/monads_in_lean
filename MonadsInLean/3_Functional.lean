@@ -101,7 +101,8 @@ the function can and cannot do.
 #eval 3 + 5
 
 example (x y : ℝ) (h1 : x ^ 2 + y = 0) (h2 : y = 0) : x = 0 := by
-  linear_combination (exp := 2) h1 - 1 * h2
+  -- linear_combination (exp := 2) h1 - 1 * h2
+  linarith
 
 #check Prop
 

@@ -21,24 +21,24 @@ class IntWithLogs:
         self.value = value
         self.log = log
 
-# def square(x : int) -> IntWithLogs :
-#     value = x * x 
-#     log = ["squared {} to get {}".format(x, x * x)]
-#     return IntWithLogs(value, log) 
+def square(x : int) -> IntWithLogs :
+    value = x * x 
+    log = ["squared {} to get {}".format(x, x * x)]
+    return IntWithLogs(value, log) 
 
-# def addOne(x : IntWithLogs) -> IntWithLogs: 
-#     value = x.value + 1
-#     log = x.log
-#     log.append("added 1 to {} to get {}".format(x.value, x.value + 1))
-#     return IntWithLogs(value, log)
+def addOne(x : IntWithLogs) -> IntWithLogs: 
+    value = x.value + 1
+    log = x.log
+    log.append("added 1 to {} to get {}".format(x.value, x.value + 1))
+    return IntWithLogs(value, log)
 
-# print(addOne(square(2)).value)
-# print(addOne(square(2)).log)
+print(addOne(square(2)).value)
+print(addOne(square(2)).log)
 
-# '''But we have an issue:'''
+'''But we have an issue:'''
 
-# square(square(2))
-# addOne(5)
+square(square(2))
+addOne(5)
 
 
 

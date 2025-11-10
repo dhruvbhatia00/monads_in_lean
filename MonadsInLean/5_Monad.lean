@@ -1,4 +1,4 @@
-
+import Mathlib.Tactic
 /- This file borrows from "Functional Programming in Lean":
 https://lean-lang.org/functional_programming_in_lean/monads.html -/
 
@@ -23,6 +23,18 @@ instance : Monad Option where
     match opt with
     | none => none
     | some x => next x
+
+/- But to truly be a monad, we need more than just a pure and a bind. We need these functions to satisfy
+certain properties. For example, if A and B are types and M is a monad, then given f : A → M B, we need
+    bind (pure a) f = f a
+for any a : A. Or, given f and g : A → M B and x : M A, we need
+    bind (bind x f) g = bind x (λ a => bind (f a) g)
+
+These extra properties are wrapped into the type class LawfulMonad
+-/
+
+#check LawfulMonad
+
 
 /- The Option monad abstracts away the possibility of missing values. When running a function,
  it checks whether the value is missing, and only returns something if the value is not missing.
