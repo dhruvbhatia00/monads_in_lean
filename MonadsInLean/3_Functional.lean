@@ -3,11 +3,13 @@ import mathlib.Tactic
 one notices about Lean is that there is no run button! When I do the following:-/
 
 #check Nat
+#check Nat → Nat
 
 /- Lean infoview displays the result on the right. Even when we use the command #eval, we don't
 need to run anything -/
 
 #eval 1 + 2
+#check 5
 
 /- However, consider the following: I will define my own local copy of the natural numbers.
 I'll even define addition analogously-/
@@ -28,7 +30,7 @@ def my_nat.add : my_nat → my_nat → my_nat
 
 #eval 1 + 2
 
-#eval my_nat.add (my_nat.succ my_nat.zero) (my_nat.succ (my_nat.succ my_nat.zero))
+#reduce my_nat.add (my_nat.succ my_nat.zero) (my_nat.succ (my_nat.succ my_nat.zero))
 
 /- Lean complains that it doesn't know how to represent this object. You might argue: why doesn't
 it just print
@@ -94,9 +96,14 @@ the function can and cannot do.
 
 /- But if lean is purely a functional programming language, how does it do the following things? -/
 
-#check Nat
+#check Type
 
 #eval 3 + 5
 
 example (x y : ℝ) (h1 : x ^ 2 + y = 0) (h2 : y = 0) : x = 0 := by
-linear_combination (exp := 2) h1 - 1 * h2
+  linear_combination (exp := 2) h1 - 1 * h2
+
+#check Prop
+
+
+example (P Q : Prop) (h1 : P → Q) (h2 : P) : Q := h1 h2

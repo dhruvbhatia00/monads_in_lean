@@ -37,6 +37,8 @@ def main : IO Unit := do
   let some fifth := inputAsList[4]? | IO.println "input not long enough"
   IO.println fifth
 
+#eval main
+
 /- here's the same thing but with bind used explicitly. -/
 
 -- def main : IO Unit :=
@@ -64,3 +66,6 @@ def mycommand1Impl : CommandElab := fun stx => do -- declare and register the el
   logInfo "Hello World"
 
 #mycommand1 -- Hello World
+
+
+#synth Div Nat
